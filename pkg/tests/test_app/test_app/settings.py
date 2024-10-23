@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 import sys
 
@@ -82,15 +82,15 @@ DATABASES = {
            'NAME': 'test',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
-                'host': '127.0.0.1',
-                'port': 27017,
+                'host': os.getenv('MONGODB_HOST', 'mongodb'),  # Default to 'mongodb' for Docker Compose
+                'port': int(os.getenv('MONGODB_PORT', 27017)),
                 'directConnection': True
             },
             'LOGGING': {
                 'version': 1,
                 'loggers': {
                     'djongo': {
-                        'level': 'DEBUG',
+                        'level': 'INFO',
                         'propagate': False,
                         'handlers': ['console']
                     }
@@ -98,7 +98,7 @@ DATABASES = {
                 'handlers': {
                     'console': {
                         'class': 'logging.StreamHandler',
-                        'level': 'DEBUG',
+                        'level': 'INFO',
                         'stream': sys.stdout
                     }
                 }
