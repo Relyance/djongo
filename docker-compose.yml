@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:8.0.1
+    platform: ${OVERRIDE_DOCKER_DEFAULT_PLATFORM:-linux/arm64}
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+  tester:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: tester
+    depends_on:
+      - mongodb
+    environment:
+      ENV: test
+      MONGODB_HOST: mongodb
+
+volumes:
+  mongodb_data:

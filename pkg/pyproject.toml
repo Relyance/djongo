@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "djongo"
+version = "2.0.0"
+description = "Driver for allowing Django to use MongoDB as the database backend."
+authors = ["doableware <support@doableware.com>"]
+license = "AGPL"
+homepage = "https://www.djongomapper.com/"
+keywords = ["Django", "MongoDB", "driver", "connector"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: AGPL License",
+    "Programming Language :: Python :: 3.6",
+]
+readme = "README.md"
+packages = [
+    {include = 'djongo'}
+]
+
+[tool.poetry.dependencies]
+python = "~3.8"
+sqlparse = "0.2.4"
+pymongo = "4.10.1"
+django = "3.2.25"
+pytz = "2024.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.7.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+

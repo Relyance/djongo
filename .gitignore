@@ -9,3 +9,6 @@ Gemfile.lock
 
 /docs/.jekyll-metadata
 /docs/djongocs/assets/*
+venv
+.venv
+/data/
