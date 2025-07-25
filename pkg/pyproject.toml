@@ -18,14 +18,14 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
+python = ">=3.9"
 sqlparse = "0.2.4"
-pymongo = "4.10.1"
+pymongo = "4.11.3"
 django = "3.2.25"
-pytz = "2024.2"
+pytz = "2025.2"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "0.7.0"
+ruff = "0.7.1"
 
 
 [build-system]

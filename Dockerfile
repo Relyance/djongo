@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir poetry
 
 COPY pkg /app
 
-RUN poetry install --no-dev
+RUN poetry install --without dev
 
 
 FROM base AS tester
